@@ -1,0 +1,7 @@
+<form [formGroup]="registerForm" (submit)="submitForm()" method="post">
+  <input formControlName='firstname' type="text">
+  <input formControlName='lastname' type="text">
+  <input formControlName='email' type="text">
+  <input formControlName='password' type="password">
+  <button type="submit">Connexion</button>
+</form>

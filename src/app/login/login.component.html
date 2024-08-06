@@ -1,0 +1,5 @@
+<form [formGroup]="loginForm" (submit)="submitForm()" method="post">
+  <input formControlName='email' type="text">
+  <input formControlName='password' type="password">
+  <button type="submit">Connexion</button>
+</form>
