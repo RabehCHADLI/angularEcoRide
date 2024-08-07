@@ -1,15 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { User } from '../user';
-import { Router } from '@angular/router';
+import { User } from '../../user';
+import { Router, RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../header/header.component';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
+  imports: [ReactiveFormsModule, CommonModule, HttpClientModule, HeaderComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

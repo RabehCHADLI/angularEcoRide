@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { User } from './user';
 import { ILoginresponse } from './response-api/auth-response';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   url = 'http://localhost:8000/api/'
-  constructor(private hpptclient: HttpClient) { }
+  constructor(private hpptclient: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
   // submitLogin(email: string, password: string): Observable<User[]> {
   //   let datafetch = {
   //     email: email,
@@ -36,8 +37,10 @@ export class AuthService {
   getToken(): string {
     return sessionStorage.getItem('token')!
   }
-  getUser(): User | null {
-    return JSON.parse(sessionStorage.getItem('user')!)
+  getUser() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(sessionStorage.getItem('user')!)
+    }
   }
 
   logout() {

@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="voyages">Voyages</a></li>
+    <li><a routerLink="voyage">VoyageId</a></li>
+    @if (!user) {
+    <li><a routerLink="login">login</a></li>
+    <li><a routerLink="register">register</a></li>
+    }
+    @else {
+    <li><a (click)="logout()" routerLink="logout">logout</a></li>
+    }
+  </ul>
+</nav>

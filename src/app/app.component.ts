@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './component/home/home.component';
 import { User } from './user';
 import { AuthService } from './auth.service';
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, RouterLink],
+  imports: [RouterOutlet, HomeComponent, RouterLink, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -20,7 +21,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser()
-
   }
 
   logout() {
